@@ -1,10 +1,9 @@
 
 const iState = {
-    studentDetail: {
-        name: '',
-        class: '',
-        fees: 0
-    },
+    
+    name: '',
+    class: '',
+    fees: 0,
     students: [],
     isLoading: false,
     student: []
@@ -18,6 +17,28 @@ const studentReducer = (state=iState,action) =>{
             students: action.payload
         }
     }
+
+    if(action.type === 'UPDATE_NAME'){
+        return{
+            ...state,
+            name: action.payload
+        }
+    }
+
+    if(action.type === 'UPDATE_CLASS'){
+        return{
+            ...state,
+            class: action.payload
+        }
+    }
+
+    if(action.type === 'UPDATE_FEES'){
+        return{
+            ...state,
+            fees: action.payload
+        }
+    }
+
     return state;
 
 }
