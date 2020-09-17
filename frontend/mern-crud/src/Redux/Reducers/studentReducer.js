@@ -39,6 +39,13 @@ const studentReducer = (state=iState,action) =>{
         }
     }
 
+    if(action.type === 'FETCH_STUDENT'){
+        return{
+            ...state,
+            student: action.payload
+        }
+    }
+
     return state;
 
 }

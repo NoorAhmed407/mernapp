@@ -12,13 +12,11 @@ export class AddStudent extends Component {
     }
 
     handleClassChange =(e)=>{
-        this.props.updateClass(e.target.value);
-        
+        this.props.updateClass(e.target.value);      
     }
 
     handleFeesChange =(e)=>{
         this.props.updateFees(e.target.value);
-
     }
 
     addStudent =(e)=>{
@@ -49,7 +47,6 @@ export class AddStudent extends Component {
                         type="text" 
                      /> <br/>
 
-
                         <label>Class</label>
                         <input 
                         className="form-control"
@@ -57,7 +54,6 @@ export class AddStudent extends Component {
                         type="text" 
                         onChange={this.handleClassChange}
                        /> <br/>
-
 
                         <label>Fees</label>
                         <input 
