@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Student = require('./../models/studentList');
+const auth = require('./../middleware/auth');
 
 
 //get single student
@@ -19,7 +20,7 @@ router.get('/', (req,res,next)=>{
 
 
 //Add a new student to the database
-router.post('/', (req,res, next)=>{
+router.post('/', auth, (req,res, next)=>{
     Student.create(req.body).then(student=>{
         res.send(student);
     }).catch(next)
@@ -37,7 +38,7 @@ router.put('/:id', (req,res,next)=>{
 });
 
 //Delete Student from database
-router.delete('/:id', (req,res,next)=>{
+router.delete('/:id', auth, (req,res,next)=>{
     Student.findByIdAndDelete({_id: req.params.id})
     .then(student=>{
         res.send(student);
