@@ -10,13 +10,22 @@ const app = express();
 app.use(cors());
 
 //connect to mongo db
-mongoose.connect('mongodb://localhost/mystudents', { useNewUrlParser: true, useUnifiedTopology: true, keepAlive: 1, });
+mongoose.connect('mongodb://localhost/mystudents', 
+{ 
+    useNewUrlParser: true, 
+    useUnifiedTopology: true, 
+    useCreateIndex: true,
+    keepAlive: 1, 
+});
+
 mongoose.Promise = global.Promise;
 
 app.use(express.json());
 
 //Initialized Routes
 app.use('/api/students',require('./routes/api'));
+app.use('/api/users',require('./routes/users'));
+app.use('/api/auth',require('./routes/auth'));
 
 //error handling middleware
 app.use((err,req,res,next)=>{
