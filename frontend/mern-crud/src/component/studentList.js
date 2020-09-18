@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import fetchStudents from './../Redux/actions/fetchStudents';
 import {Link} from 'react-router-dom';
-import axios from 'axios';
+// import axios from 'axios';
 
 export class StudentList extends Component {
     componentDidMount=()=>{

@@ -14,7 +14,7 @@ export class SignUp extends Component {
     }
     register=e=>{
         e.preventDefault()
-        axios.post('http://localhost:4000/users/', this.state)
+        axios.post('http://localhost:4000/api/users/', this.state)
         .then(res=>{
             localStorage.setItem('user',JSON.stringify(res.data));
             this.props.history.push('/');
@@ -29,7 +29,7 @@ export class SignUp extends Component {
                 </h2>
                 <form>
                 <div className="form-group">
-                    <label>Email address</label>
+                    <label>Name</label>
                     <input 
                     name="name"
                     type="text" 
@@ -37,7 +37,7 @@ export class SignUp extends Component {
                     id="exampleInputEmail1"
                     onChange={this.handleChange}
                     aria-describedby="emailHelp" 
-                    placeholder="Enter email"
+                    placeholder="Enter Your Name"
                      />
                 </div>
                 <div className="form-group">
