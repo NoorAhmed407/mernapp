@@ -27,7 +27,7 @@ export class AddStudent extends Component {
             class: studentClass,
             fees: studentFees
           };
-          
+
           const token = JSON.parse(localStorage.getItem('user')).token;
           axios.post('http://localhost:4000/api/students', studentObject,{
               headers : {
@@ -47,7 +47,7 @@ export class AddStudent extends Component {
     render() {
         return (
             <div className=" container mt-4">
-                <h1>Edit Student</h1>
+                <h1>Add Student</h1>
                 <div className="mt-3">
                 <label>Fullname</label>
                         <input 
