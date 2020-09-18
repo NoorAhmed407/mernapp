@@ -23,7 +23,7 @@ export class StudentList extends Component {
                 </h1>
                 
                 <div className="mt-3">
-                    <table className="table table-striped">
+                    <table className="table table-striped text-center">
                         <thead>
                             <tr>
                                 <th scope="col">Name</th>

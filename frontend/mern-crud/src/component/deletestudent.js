@@ -13,7 +13,13 @@ export class DeleteStudent extends Component {
 
     deleteData = e =>{
         e.preventDefault();
-        axios.delete(`http://localhost:4000/api/students/${this.id}`)
+        const token = JSON.parse(localStorage.getItem('user')).token;
+        axios.delete(`http://localhost:4000/api/students/${this.id}`,{
+            headers : {
+                "Content-Type": "application/json;charset=UTF-8",
+                "x-auth-token": token,
+              }
+        })
         .then((res) => {
             console.log('Student successfully deleted!')
             this.props.history.push('/')

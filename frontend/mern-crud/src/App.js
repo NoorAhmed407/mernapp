@@ -4,6 +4,7 @@ import StudentList from './component/studentList';
 import EditStudent from './component/editstudent';
 import DeleteStudent from './component/deletestudent';
 import AddStudent from './component/addstudent';
+import SignIn from './component/signIn'
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
       <BrowserRouter>
         <Header />
         <Route path="/" exact component={StudentList} />
+        <Route path="/signin"component={SignIn} />
         <Route path="/edit/:id" component={EditStudent}/>
         <Route path="/delete/:id" component={DeleteStudent}/>
         <Route path="/add" component={AddStudent} />

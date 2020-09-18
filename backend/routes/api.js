@@ -13,6 +13,7 @@ router.get('/:id', (req,res,next)=>{
 
 //get all students from database
 router.get('/', (req,res,next)=>{
+    console.log("route /");
     Student.find({}).then(student=>{
         res.send(student);
     });
@@ -21,14 +22,16 @@ router.get('/', (req,res,next)=>{
 
 //Add a new student to the database
 router.post('/', auth, (req,res, next)=>{
+    console.log("Create student:",req.body );
     Student.create(req.body).then(student=>{
+        console.log("returning student:", student );
         res.send(student);
-    }).catch(next)
+    }).catch(next);
 });
 
 
 //Update Student from the database
-router.put('/:id', (req,res,next)=>{
+router.put('/:id', auth, (req,res,next)=>{
     Student.findByIdAndUpdate({_id: req.params.id},req.body)
     .then(student=>{
         Student.findOne({_id: req.params.id}).then(student=>{

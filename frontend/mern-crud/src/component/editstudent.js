@@ -28,8 +28,14 @@ export class EditStudent extends Component {
             class: this.state.class,
             fees: this.state.fees
         };
-
-        axios.put(`http://localhost:4000/api/students/${this.id}`, studentObject)
+        
+        const token = JSON.parse(localStorage.getItem('user')).token;
+        axios.put(`http://localhost:4000/api/students/${this.id}`, studentObject, {
+            headers : {
+                "Content-Type": "application/json;charset=UTF-8",
+                "x-auth-token": token,
+              }
+        })
         .then(res=>{
             console.log(res.data);
             this.props.history.push('/');

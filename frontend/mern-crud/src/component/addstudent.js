@@ -27,10 +27,20 @@ export class AddStudent extends Component {
             class: studentClass,
             fees: studentFees
           };
-
-          axios.post('http://localhost:4000/api/students', studentObject)
-            .then(res => console.log(res.data))
-            .catch(err => console.log(err));
+          
+          const token = JSON.parse(localStorage.getItem('user')).token;
+          axios.post('http://localhost:4000/api/students', studentObject,{
+              headers : {
+                "Content-Type": "application/json;charset=UTF-8",
+                "x-auth-token": token,
+              }
+          })
+            .then(res => {
+                console.log("create student response:", res);
+            })
+            .catch(err => {
+                console.log("create student err:", err);
+            });
 
         this.props.history.push('/');
     }
